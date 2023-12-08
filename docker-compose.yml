@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  redmine:
+    image: redmine:5.1.1-alpine3.18
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: redmine-db
+      REDMINE_DB_PASSWORD: redmine_db_password
+      REDMINE_DB_PORT: 3306
+    volumes:
+      - ./data/files:/usr/src/redmine/files
+      - ./data/plugins:/usr/src/redmine/plugins
+      - ./data/themes:/usr/src/redmine/public/themes
+
+  redmine-db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: redmine_db_password
+      MYSQL_DATABASE: redmine
+    volumes:
+      - ./data/db:/var/lib/mysql/
