@@ -36,6 +36,10 @@ services:
 
 volumes:
     redmine-files:
+      name: redmine-files
     redmine-plugins:
+      name: redmine-plugins
     redmine-public:
+      name: redmine-public
     mysql-data:
+      name: mysql-data
