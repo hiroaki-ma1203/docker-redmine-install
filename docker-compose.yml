@@ -3,23 +3,39 @@ version: '3.8'
 services:
   redmine:
     image: redmine:5.1.1-alpine3.18
+    container_name: redmine
+    restart: always
+    depends_on:
+      - mysql
     ports:
       - 3000:3000
     environment:
-      REDMINE_DB_MYSQL: redmine-db
+      REDMINE_DB_MYSQL: mysql
+      REDMINE_DB_USERNAME: redmine_db_user
       REDMINE_DB_PASSWORD: redmine_db_password
+      REDMINE_DB_DATABASE: redmine
       REDMINE_DB_PORT: 3306
     volumes:
-      - ./data/files:/usr/src/redmine/files
-      - ./data/plugins:/usr/src/redmine/plugins
-      - ./data/themes:/usr/src/redmine/public/themes
+      - redmine-files:/usr/src/redmine/files
+      - redmine-plugins:/usr/src/redmine/plugins
+      - redmine-public:/usr/src/redmine/public
 
-  redmine-db:
+  mysql:
     image: mysql:5.7
+    container_name: mysql
+    restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: redmine_db_password
+      MYSQL_ROOT_PASSWORD: SuperPassword1234
       MYSQL_DATABASE: redmine
+      MYSQL_USER: redmine_db_user
+      MYSQL_PASSWORD: redmine_db_password
     volumes:
-      - ./data/db:/var/lib/mysql/
+      - mysql-data:/var/lib/mysql/
+
+volumes:
+    redmine-files:
+    redmine-plugins:
+    redmine-public:
+    mysql-data:
