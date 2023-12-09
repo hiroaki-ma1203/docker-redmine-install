@@ -33,6 +33,7 @@ services:
       MYSQL_PASSWORD: redmine_db_password
     volumes:
       - mysql-data:/var/lib/mysql/
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 volumes:
     redmine-files:
