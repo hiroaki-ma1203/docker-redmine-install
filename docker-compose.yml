@@ -14,11 +14,12 @@ services:
       REDMINE_DB_USERNAME: redmine_db_user
       REDMINE_DB_PASSWORD: redmine_db_password
       REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_ENCODING: utf8mb4
       REDMINE_DB_PORT: 3306
     volumes:
-      - redmine-files:/usr/src/redmine/files
-      - redmine-plugins:/usr/src/redmine/plugins
-      - redmine-public:/usr/src/redmine/public
+      - ./data/files:/usr/src/redmine/files
+      - ./data/plugins:/usr/src/redmine/plugins
+      - ./data/themes:/usr/src/redmine/public/themes
 
   mysql:
     image: mysql:5.7
