@@ -12,7 +12,7 @@
       ```
    1. If you use wget.
       ```
-      mkdir docker-redmine-install && wget https://raw.githubusercontent.com/hiroaki-ma1203/docker-redmine-install/master/docker-compose.yml -P docker-redmine-install
+      $ mkdir docker-redmine-install && wget https://raw.githubusercontent.com/hiroaki-ma1203/docker-redmine-install/master/docker-compose.yml -P docker-redmine-install
       ```
 1. Change directory.
    ```
