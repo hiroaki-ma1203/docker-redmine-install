@@ -18,6 +18,10 @@
    ```
    $ cd docker-redmine-install
    ```
+1. Change MySQL root password.
+   ```
+   sed -e 's/SuperPassword1234/<Youre new Password>/' docker-compose.yml
+   ```
 1. start container.
    ```
    $ docker-compose up -d
