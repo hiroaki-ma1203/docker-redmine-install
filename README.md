@@ -5,9 +5,23 @@
 ### Linux
 
 1. Install docker, docker-compose and git.
-1. `$ git clone https://github.com/hiroaki-ma1203/docker-redmine-install.git`
-1. `$ cd docker-redmine-install`
-1. `$ docker-compose up -d`
+1. Download files.
+   1. If you use git.
+      ```
+      $ git clone https://github.com/hiroaki-ma1203/docker-redmine-install.git
+      ```
+   1. If you use wget.
+      ```
+      mkdir docker-redmine-install && wget https://raw.githubusercontent.com/hiroaki-ma1203/docker-redmine-install/master/docker-compose.yml -P docker-redmine-install
+      ```
+1. Change directory.
+   ```
+   $ cd docker-redmine-install
+   ```
+1. start container.
+   ```
+   $ docker-compose up -d
+   ```
 
 ### Add Redmine Plugins
 
