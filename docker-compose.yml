@@ -22,7 +22,7 @@ services:
       - redmine-themes:/usr/src/redmine/public/themes
 
   mysql:
-    image: mysql:5.7
+    image: mysql:8.3.0
     container_name: mysql
     restart: always
     ports:
